@@ -1,5 +1,5 @@
+from helpers.locator_helper import *
 from mobile.tests.common.base_page import BasePage
-from appium.webdriver.common.appiumby import AppiumBy as MobileBy
 from helpers.allure_helper import step
 
 
@@ -10,7 +10,7 @@ class OnboardingPage(BasePage):
 
     """Start Page Locators"""
 
-    skip_btn = (MobileBy.ID, 'org.wikipedia.alpha:id/fragment_onboarding_skip_button')
+    skip_btn = locator([by_xpath('//*@name="Skip"]'), by_id('org.wikipedia.alpha:id/fragment_onboarding_skip_button')])
 
     @step
     def skip_btn_is_displayed(self):

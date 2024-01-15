@@ -70,9 +70,11 @@ def get_ios_capabilities(device_name, platform_version):
 @pytest.fixture(scope='function', autouse=True)
 def driver(request, driver_value, device_name, udid, appium_port, platform_version):
     grid_url = f"http://localhost:{appium_port}"
+    os.environ['OS'] = "android"
     capabilities = get_android_capabilities(device_name=device_name, udid=udid)
     options = UiAutomator2Options().load_capabilities(capabilities)
     if driver_value == "ios_driver":
+        os.environ['OS'] = "ios"
         capabilities = get_ios_capabilities(device_name=device_name, platform_version=platform_version)
         options = XCUITestOptions().load_capabilities(capabilities)
     driver = webdriver.Remote(grid_url, options=options)

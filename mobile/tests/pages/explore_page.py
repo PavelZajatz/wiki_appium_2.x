@@ -1,6 +1,6 @@
 from mobile.tests.common.base_page import BasePage
-from appium.webdriver.common.appiumby import AppiumBy as MobileBy
 from helpers.allure_helper import step
+from helpers.locator_helper import *
 
 
 class ExplorePage(BasePage):
@@ -10,9 +10,10 @@ class ExplorePage(BasePage):
 
     """Start Page Locators"""
 
-    search_field = (MobileBy.ACCESSIBILITY_ID, 'Search Wikipedia')
-    search_text = (MobileBy.ID, 'org.wikipedia.alpha:id/search_src_text')
-    search_result = (MobileBy.ID, 'org.wikipedia.alpha:id/page_list_item_title')
+    search_field = locator([by_accessibility_id('Search Wikipedia')])
+    search_text = locator([by_accessibility_id('Search Wikipedia'), by_id('org.wikipedia.alpha:id/search_src_text')])
+    search_result = locator([by_xpath("//*[contains(@name, 'Appi')]"),
+                             by_id('org.wikipedia.alpha:id/page_list_item_title')])
 
     @step
     def tap_search_field(self):

@@ -46,28 +46,7 @@ Appium does not support testing iOS applications on Windows directly. For iOS te
    brew install carthage
    npm install -g ios-deploy
    ```
-2. Install the Appium Xcode WebDriverAgent:
-   1. **Locate WebDriverAgent. If you installed Appium via Node.js:**
-        ```
-        /usr/local/lib/node_modules/appium/node_modules/appium-webdriveragent
-        ```
-   2. **Navigate to the Directory:**
-      In the Terminal window, go to the directory specified above.
-   3. **Run the Installation Commands:**
-      Execute the following commands in the Terminal:
-      ```bash
-      mkdir -p Resources/WebDriverAgent.bundle
-      ./Scripts/bootstrap.sh -d
-      ```
-   4. **Open WebDriverAgent.xcodeproj in Xcode:**
-      1. Locate the WebDriverAgent.xcodeproj project in one of the specified directories.
-      2. Open the project in Xcode and Configure Targets in Xcode:
-      For the WebDriverAgentLib and WebDriverAgentRunner targets, go to the General tab.
-      Select the "Automatically manage signing" checkbox, and then choose your development team and build project
-      3. Build the Project:
-      ```bash
-      xcodebuild -project WebDriverAgent.xcodeproj -scheme WebDriverAgentRunner -destination 'id=udid' test
-      ```
+2. Install the Appium Xcode WebDriverAgent: https://appium.github.io/appium-xcuitest-driver
 3. Identify Connected Devices: If you have physical devices connected to your Appium instance, use the following command to output the list of device IDs.
 Copy the ID of the desired device for later use in the "capabilities" section of mobile tests.
       ```bash
